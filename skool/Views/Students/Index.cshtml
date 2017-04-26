@@ -1,0 +1,257 @@
+﻿<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li class="active">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li> @Html.ActionLink("Students", "Index", "Students")</li>
+        <li>
+            @Html.ActionLink("Subject", "Index", "Subject")
+        </li>
+        <li>
+            @Html.ActionLink("Teachers", "Index", "Teachers")
+        </li>
+        <li>
+            @Html.ActionLink("Notices", "Index", "Notices")
+        </li>
+        
+</div>
+<ul class="nav navbar-right top-nav">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+        <ul class="dropdown-menu message-dropdown">
+            <li class="message-preview">
+                <a href="#">
+                    <div class="media">
+                        <span class="pull-left">
+                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                        </span>
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                                <strong>Elsa</strong>
+                            </h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p>teachers meeting...</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="message-preview">
+                <a href="#">
+                    <div class="media">
+                        <span class="pull-left">
+                            <img class="media-object" src="http://placehold.it/50x50" alt="">
+                        </span>
+                        <div class="media-body">
+                            <h5 class="media-heading">
+                                <strong>jery</strong>
+                            </h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p>document Aproval...</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="message-preview">
+                <a href="#">
+                 
+                </a>
+            </li>
+            <li class="message-footer">
+                <a href="#">Read All New Messages</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+        <ul class="dropdown-menu alert-dropdown">
+            <li>
+                <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
+            </li>
+            <li>
+                <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
+            </li>
+            
+            <li class="divider"></li>
+            <li>
+                <a href="#">View All</a>
+            </li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Rediet Yeshidagna<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+           
+            <li class="divider"></li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- /.row -->
+                <div class="row">
+                    @model IEnumerable<skool.Models.Student>
+
+                    @{
+                        ViewBag.Title = "Index";
+                    }
+
+                    <h2>Student Registration</h2>
+
+                    <p class="btn btn-default ">
+                        @Html.ActionLink("Register", "Create")
+                    </p>
+                    @using (Html.BeginForm())
+                    {
+                        <p>
+                            FirstName/LastName/MiddleName: @Html.TextBox("SearchString")
+
+                            <input type="submit" value="Search" />
+                        </p>
+                    }
+                    <table class="table">
+                        <tr>
+                            <th>
+                                Sort by:
+                            </th>
+                            <th>
+                                @Html.ActionLink("First Name", "Index", new
+               {
+                   sortOrder =
+        ViewBag.NameSortParm
+               })
+                            </th>
+
+                            <th>
+                                @Html.ActionLink("Enrollment Date", "Index", new
+               {
+                   sortOrder =
+        ViewBag.DateSortParm
+               })
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MiddleName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EnrollmentDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Age)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Sex)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Section)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Classroom)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.EmergencyContact)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Kebele)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Woreda)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SubCity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HouseNo)
+                            </th>
+
+
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MiddleName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sex)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Section)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Classroom)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EmergencyContact)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Kebele)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Woreda)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubCity)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.HouseNo)
+                                </td>
+
+
+
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.StudentID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+
+
+
+

@@ -1,0 +1,51 @@
+﻿@model skool.Models.Subject
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li class="active">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li> @Html.ActionLink("Students", "Index", "Students")</li>
+        <li>
+            @Html.ActionLink("Subject", "Index", "Subject")
+        </li>
+        <li>
+            @Html.ActionLink("Teachers", "Index", "Teachers")
+        </li>
+        <li>
+            @Html.ActionLink("Notices", "Index", "Notices")
+        </li>
+
+</div>
+<h2>Details</h2>
+
+<div>
+    <h4>Subject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Subjectname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subjectname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subjectcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subjectcode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubjectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
